@@ -12,6 +12,7 @@ workspace "Morph"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 Include = {}
+Include["Morph"] = "%{wks.location}/Morph/Source";
 
 include "Morph"
 include "MorphApp"

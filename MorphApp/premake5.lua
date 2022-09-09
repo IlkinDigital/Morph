@@ -1,22 +1,26 @@
 project "MorphApp"
-    location "MorphApp"
     language "C++"
     cppdialect "C++20"
     kind "ConsoleApp"
     staticruntime "off"
 
-    targetdir ("Binaries/" .. outputdir .. "/%{prj.name}")
-    objdir ("Binaries-Int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("../Binaries/" .. outputdir .. "/%{prj.name}")
+    objdir ("../Binaries-Int/" .. outputdir .. "/%{prj.name}")
 
     files
     {
-        "%{prj.name}/Source/**.h",
-        "%{prj.name}/Source/**.cpp"
+        "Source/**.h",
+        "Source/**.cpp"
     }
 
     includedirs 
     {
-        "%{prj.name}/Source",
+        "Source",
+        "%{Include.Morph}"
+    }
+
+    links
+    {
         "Morph"
     }
 

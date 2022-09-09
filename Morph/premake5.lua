@@ -1,23 +1,22 @@
 project "Morph"
-    location "Morph"
     language "C++"
     cppdialect "C++20"
     kind "StaticLib"
     staticruntime "off"
 
-    targetdir ("Binaries/" .. outputdir .. "/%{prj.name}")
-    objdir ("Binaries-Int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("../Binaries/" .. outputdir .. "/%{prj.name}")
+    objdir ("../Binaries-Int/" .. outputdir .. "/%{prj.name}")
 
     files
     {
-        "%{prj.name}/Source/**.h",
-        "%{prj.name}/Source/**.cpp"
+        "Source/**.h",
+        "Source/**.cpp"
     }
 
-    includedirs 
+    includedirs
     {
-        "%{prj.name}/Source",
-        "%{prj.name}/Source/Morph"
+        "%{Include.Morph}",
+        "Source/Morph"
     }
 
     filter "system:windows"

@@ -1,0 +1,13 @@
+﻿# Visual Studio files
+.vs
+*.sln
+*.vcxproj
+*.filters
+*.user
+
+# Optick
+*.opt
+
+# Binaries
+Binaries-Int/
+Binaries/
