@@ -7,15 +7,17 @@ namespace Morph {
 	enum EventType
 	{
 		KeyPressed,
-		MousePressed,
+		MouseButtonPressed, MouseMoved,
 		WindowCloseEvent
 	};
 
 	class Event
 	{
 	public:
-		virtual const String& GetName()  const = 0;
+		virtual const std::string& GetName()  const = 0;
 		virtual EventType GetEventType() const = 0;
+
+		bool Handled = false;
 	};
 
 	

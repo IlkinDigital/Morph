@@ -16,7 +16,15 @@ project "Morph"
     includedirs
     {
         "%{Include.Morph}",
+        "%{Include.GLFW}",
+        "%{Include.glad}",
         "Source/Morph"
+    }
+
+    links
+    {
+        "%{Library.GLFW}",
+        "%{Library.glad}"
     }
 
     filter "system:windows"

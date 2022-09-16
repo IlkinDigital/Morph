@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <stdint.h>
 #include <string>
 #include <memory>
@@ -24,4 +25,16 @@ using Scope = std::unique_ptr;
 template<typename Ty>
 using CreateScope = std::make_unique<Ty>;
 
-using String = std::string;
+
+#define MORPH_LOG(message) std::cout << message << '\n'
+#define MORPH_TRACE(message) MORPH_LOG("[TRACE]: " << message)
+#define MORPH_INFO(message) MORPH_LOG("[INFO]: " << message)
+#define MORPH_ERROR(message) MORPH_LOG("[ERROR]: " << message)
+#define MORPH_FATAL(message) MORPH_LOG("[FATAL]: " << message)
+
+
+#ifdef MORPH_CONFIG_DEBUG
+	#define MORPH_ASSERT(expr, message) if (!expr) { MORPH_ERROR(message); __debugbreak(); }
+#else
+	#define MORPH_ASSERT(expr, message)
+#endif

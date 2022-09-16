@@ -1,0 +1,3 @@
+[submodule "ThirdParty/GLFW"]
+	path = ThirdParty/GLFW
+	url = https://github.com/IlkinDigital/glfw.git
