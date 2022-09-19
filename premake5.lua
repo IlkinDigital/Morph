@@ -17,8 +17,11 @@ Include["GLFW"] = "%{wks.location}/ThirdParty/GLFW/include";
 Include["glad"] = "%{wks.location}/ThirdParty/glad/include";
 
 Library = {}
-Library["GLFW"] = "%{wks.location}/ThirdParty/GLFW";
-Library["glad"] = "%{wks.location}/ThirdParty/glad";
+Library["GLFW"] = "GLFW";
+Library["glad"] = "glad";
+
+include "ThirdParty/GLFW"
+include "ThirdParty/glad"
 
 include "Morph"
 include "MorphApp"

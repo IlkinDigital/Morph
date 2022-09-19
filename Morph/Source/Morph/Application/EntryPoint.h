@@ -2,11 +2,11 @@
 
 #include "Application.h"
 
-extern Morph::Application* Morph::CreateApplication();
+extern Morph::Application* CreateApplication();
 
 int main()
 {
-	Morph::Application* app = Morph::CreateApplication();
+	Morph::Application* app = CreateApplication();
 
 	app->Run();
 

@@ -1,10 +1,15 @@
-#include <iostream>
+#include "Morph/Application/EntryPoint.h"
 
-#include "Morph/Test.h"
+using namespace Morph;
 
-int main()
+class MorphApp : public Application
 {
-	Morph::Test::Print();
+public:
+	MorphApp(const std::string& name)
+		: Application(name) {}
+};
 
-	return 0;
+Application* CreateApplication()
+{
+	return new MorphApp("Morph Application");
 }

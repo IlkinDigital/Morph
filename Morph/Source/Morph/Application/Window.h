@@ -1,21 +1,28 @@
 #pragma once
 
-#include "Core/CoreMinimal.h"
+#include "Event/Event.h"
+
+#include <functional>
 
 namespace Morph {
 
 	class Window
 	{
 	public:
+		using EventCallbackFn = std::function<void(Event&)>;
+	public:
 		virtual void Init() = 0;
 		virtual void Shutdown() = 0;
 
-		virtual uint32 GetWidth()  const { return m_Width;  }
-		virtual uint32 GetHeight() const { return m_Height; }
+		virtual void OnUpdate() = 0;
+
+		virtual uint32 GetWidth()  const = 0;
+		virtual uint32 GetHeight() const = 0;
+
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
+
+		virtual void SetVSync(bool enabled) = 0;
 		
-		Ref<Window> Create(uint32 width, uint32 height, bool vsync);
-	protected:
-		uint32 m_Width = 1920, m_Height = 1080;
-		bool m_VSync = true;
+		static Scope<Window> Create(const std::string& title, uint32 width, uint32 height, bool vsync);
 	};
 }

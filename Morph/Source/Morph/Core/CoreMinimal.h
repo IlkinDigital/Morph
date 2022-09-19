@@ -17,13 +17,21 @@ typedef int64_t     int64;
 
 template<typename Ty>
 using Ref = std::shared_ptr<Ty>;
-template<typename Ty>
-using CreateRef = std::make_shared<Ty>;
+
+template<typename Ty, typename ... Args>
+constexpr Ref<Ty> CreateRef(Args&& ... args)
+{
+	return std::make_shared<Ty>(std::forward<Args>(args)...);
+}
 
 template<typename Ty>
-using Scope = std::unique_ptr;
-template<typename Ty>
-using CreateScope = std::make_unique<Ty>;
+using Scope = std::unique_ptr<Ty>;
+
+template<typename Ty, typename ... Args>
+constexpr Scope<Ty> CreateScope(Args&& ... args)
+{
+	return std::make_unique<Ty>(std::forward<Args>(args)...);
+}
 
 
 #define MORPH_LOG(message) std::cout << message << '\n'
