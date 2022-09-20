@@ -7,18 +7,22 @@ namespace Morph {
 	class EventDispatcher
 	{
 	public:
-		template<typename Ty, typename Fn>
-		bool Dispatch(Event event, Fn func)
+		EventDispatcher(Event& event)
+			: m_Event(event) {}
+
+		template<EventType Ty>
+		bool Dispatch(std::function<bool()> func)
 		{
-			if (event.GetEventType() == Ty && !event.Handled)
+			if (m_Event.GetEventType() == Ty && !m_Event.Handled)
 			{
-				func(event);
-				event.Handled = true;
+				m_Event.Handled = func();
 				return true;
 			}
 			
 			return false;
 		}
+	private:
+		Event& m_Event;
 	};
 	
 }

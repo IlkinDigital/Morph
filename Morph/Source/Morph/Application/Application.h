@@ -12,7 +12,9 @@ namespace Morph {
 
 		void Run();
 
-		void OnEvent(Event& event) const;
+		void OnEvent(Event& event);
+
+		bool OnWindowClose();
 	private:
 		bool m_Running = true;
 		Scope<Window> m_Window;

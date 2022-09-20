@@ -26,6 +26,10 @@ namespace Morph {
 #define EVENT_BASE_IMPL(eventType) virtual const char* GetName() const override { return #eventType; } \
 									   virtual EventType GetEventType() const override { return eventType; }
 
+#define CALLBACK_BIND(func) [&](Event& event) { func(event); }
+#define EVENT_BIND(func) [&]() -> bool { return func(); }
+
+
 	class WindowCloseEvent : public Event
 	{
 	public:
