@@ -24,6 +24,11 @@ namespace Morph {
 		Init();
 	}
 
+	UniversalWindow::~UniversalWindow()
+	{
+		Shutdown();
+	}
+
 	void UniversalWindow::SetVSync(bool enabled)
 	{
 		glfwSwapInterval(enabled);

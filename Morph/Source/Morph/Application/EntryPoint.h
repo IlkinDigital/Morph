@@ -12,5 +12,6 @@ int main()
 
 	delete app;
 
+	MORPH_WARN("Closing Application...");
 	return 0;
 }

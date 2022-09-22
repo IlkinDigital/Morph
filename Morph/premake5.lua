@@ -18,13 +18,15 @@ project "Morph"
         "%{Include.Morph}",
         "Source/Morph",
         "%{Include.GLFW}",
-        "%{Include.glad}"
+        "%{Include.glad}",
+        "%{Include.ImGui}"
     }
 
     links
     {
         "%{Library.GLFW}",
-        "%{Library.glad}"
+        "%{Library.glad}",
+        "%{Library.ImGui}"
     }
 
     filter "system:windows"

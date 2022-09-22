@@ -10,6 +10,11 @@ namespace Morph {
 		EventDispatcher(Event& event)
 			: m_Event(event) {}
 
+		/**
+		 * Event function returns
+		 * true - Event handled
+		 * false - Event wasn't handled, is sent through the other layers in LayerStack
+		 */
 		template<EventType Ty>
 		bool Dispatch(std::function<bool()> func)
 		{

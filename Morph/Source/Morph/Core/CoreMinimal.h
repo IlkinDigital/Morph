@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdint.h>
 #include <string>
+#include <vector>
 #include <memory>
 
 typedef uint8_t	    uint8;
@@ -37,6 +38,7 @@ constexpr Scope<Ty> CreateScope(Args&& ... args)
 #define MORPH_LOG(message) std::cout << message << '\n'
 #define MORPH_TRACE(message) MORPH_LOG("[TRACE]: " << message)
 #define MORPH_INFO(message) MORPH_LOG("[INFO]: " << message)
+#define MORPH_WARN(message) MORPH_LOG("[WARN]: " << message)
 #define MORPH_ERROR(message) MORPH_LOG("[ERROR]: " << message)
 #define MORPH_FATAL(message) MORPH_LOG("[FATAL]: " << message)
 

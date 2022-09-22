@@ -10,11 +10,13 @@ namespace Morph {
 	{
 	public:
 		UniversalWindow(const std::string& title, uint32 width, uint32 height, bool vSync);
+		virtual ~UniversalWindow() override;
 
 		virtual void Init() override;
 		virtual void Shutdown() override;
-
 		virtual void OnUpdate() override;
+
+		virtual void* GetNativeWindow() override { return m_Window; }
 
 		virtual uint32 GetWidth() const override  { return m_Data.Width;  }
 		virtual uint32 GetHeight() const override { return m_Data.Height; }

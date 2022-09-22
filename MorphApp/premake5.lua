@@ -17,12 +17,14 @@ project "MorphApp"
     {
         "Source",
         "%{Include.Morph}",
-        "%{Include.Morph}/Morph"
+        "%{Include.Morph}/Morph",
+        "%{Include.ImGui}"
     }
 
     links
     {
-        "Morph"
+        "Morph",
+        "%{Library.ImGui}"
     }
 
     filter "system:windows"
