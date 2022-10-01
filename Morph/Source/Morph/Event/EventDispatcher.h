@@ -16,11 +16,11 @@ namespace Morph {
 		 * false - Event wasn't handled, is sent through the other layers in LayerStack
 		 */
 		template<EventType Ty>
-		bool Dispatch(std::function<bool()> func)
+		bool Dispatch(std::function<bool(Event&)> func)
 		{
 			if (m_Event.GetEventType() == Ty && !m_Event.Handled)
 			{
-				m_Event.Handled = func();
+				m_Event.Handled = func(m_Event);
 				return true;
 			}
 			

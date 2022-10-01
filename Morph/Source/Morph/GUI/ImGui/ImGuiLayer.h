@@ -12,7 +12,7 @@ namespace Morph {
 
 		void OnAttach() override;
 		void OnDetach() override;
-		void OnDrawGUI() override;
+		void OnRenderGUI() override;
 		void OnEvent(Event& event) override;
 
 		void Begin();

@@ -27,7 +27,7 @@ namespace Morph {
 									   virtual EventType GetEventType() const override { return eventType; }
 
 #define CALLBACK_BIND(func) [&](Event& event) { func(event); }
-#define EVENT_BIND(func) [&]() -> bool { return func(); }
+#define EVENT_BIND(type, func) [&](Event& event) -> bool { return func((type&)event); }
 
 
 	class WindowCloseEvent : public Event

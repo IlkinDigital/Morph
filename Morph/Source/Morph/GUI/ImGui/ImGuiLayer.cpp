@@ -23,6 +23,8 @@ namespace Morph {
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
+		io.FontDefault = io.Fonts->AddFontFromFileTTF("Resources/Montserrat-Regular.ttf", 20.0f);
+
 		// Setup Dear ImGui style
 		//ImGui::StyleColorsDark();
 
@@ -51,7 +53,7 @@ namespace Morph {
 		ImGui::DestroyContext();
 	}
 
-	void ImGuiLayer::OnDrawGUI()
+	void ImGuiLayer::OnRenderGUI()
 	{
 
 	}

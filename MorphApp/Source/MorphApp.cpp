@@ -1,6 +1,8 @@
-#include "Morph/Application/EntryPoint.h"
+#include <Application/EntryPoint.h>
+#include <GUI/PanelStack.h>
+#include <GUI/Layout.h>
 
-#include <imgui.h>
+#include "LogPanel.h"
 
 using namespace Morph;
 
@@ -8,20 +10,48 @@ class MorphApp : public Application
 {
 public:
 	MorphApp(const std::string& name)
-		: Application(name) {}
+		: Application(name) 
+	{
+		m_PanelStack.PushPanel(CreateRef<LogPanel>());
+		m_PanelStack.PushPanel(CreateRef<LogPanel>());
+		m_PanelStack.PushPanel(CreateRef<LogPanel>());
+		m_PanelStack.PushPanel(CreateRef<LogPanel>());
+	}
 
 	virtual void OnDrawGUI() override
 	{
-		ImGui::Begin("Test Window");
+		GUI::Layout::BeginDockspace();
 
-		ImGui::Text("Test text...");
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("View"))
+			{
+				for (auto& panel : m_PanelStack)
+				{
+					if (ImGui::MenuItem(panel->GetName(), panel->IsOpen() ? "Close" : "Open"))
+						panel->Open();
+				}
 
-		ImGui::End();
+				ImGui::EndMenu();
+			}
+
+			ImGui::EndMenuBar();
+		}
+
+		for (auto& panel : m_PanelStack)
+		{
+			panel->OnRenderGUI();
+		}
+
+		GUI::Layout::EndDockspace();
 	}
 
 	virtual void OnUpdate() override
 	{
+
 	}
+private:
+	PanelStack m_PanelStack;
 };
 
 Application* CreateApplication()

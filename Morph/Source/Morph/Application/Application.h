@@ -19,9 +19,10 @@ namespace Morph {
 		virtual void OnDrawGUI() {}
 		void OnEvent(Event& event);
 
-		bool OnWindowClose();
 		void Run();
 
+		bool OnWindowClose(WindowCloseEvent& event);
+		bool OnWindowResize(WindowResizeEvent& event);
 	private:
 		bool m_Running = true;
 		Scope<Window> m_Window;

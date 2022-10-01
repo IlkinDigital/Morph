@@ -32,9 +32,7 @@ namespace Morph {
 
 			m_GUILayer->Begin();
 
-
-			ImGui::ShowDemoWindow();
-
+			OnDrawGUI();
 
 			m_GUILayer->End();
 
@@ -47,7 +45,8 @@ namespace Morph {
 	void Application::OnEvent(Event& event)
 	{
 		EventDispatcher dispatcher(event);
-		dispatcher.Dispatch<EventType::WindowClose>(EVENT_BIND(OnWindowClose));
+		dispatcher.Dispatch<EventType::WindowClose>(EVENT_BIND(WindowCloseEvent, OnWindowClose));
+		dispatcher.Dispatch<EventType::WindowResize>(EVENT_BIND(WindowResizeEvent, OnWindowResize));
 
 		if (!event.Handled)
 			m_GUILayer->OnEvent(event);
@@ -56,11 +55,16 @@ namespace Morph {
 		//MORPH_INFO(event.GetName());
 	}
 
-	bool Application::OnWindowClose()
+	bool Application::OnWindowClose(WindowCloseEvent& event)
 	{
 		m_Running = false;
-
 		return true;
+	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& event)
+	{
+		glViewport(0, 0, event.GetWidth(), event.GetHeight());
+		return false;
 	}
 
 }

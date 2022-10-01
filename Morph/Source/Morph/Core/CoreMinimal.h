@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <filesystem>
 
 typedef uint8_t	    uint8;
 typedef uint16_t    uint16;
@@ -33,6 +34,8 @@ constexpr Scope<Ty> CreateScope(Args&& ... args)
 {
 	return std::make_unique<Ty>(std::forward<Args>(args)...);
 }
+
+using Filepath = std::filesystem::path;
 
 
 #define MORPH_LOG(message) std::cout << message << '\n'
