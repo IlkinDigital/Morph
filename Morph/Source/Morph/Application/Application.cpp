@@ -5,6 +5,7 @@
 
 #include "GUI/Layout.h"
 
+#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 #include <imgui.h>
 
@@ -17,6 +18,8 @@ namespace Morph {
 		m_Window = Window::Create(name, 1920, 1080, true);
 		m_Window->SetEventCallback(CALLBACK_BIND(OnEvent));
 		m_GUILayer = CreateRef<ImGuiLayer>(); 
+
+		m_Time = 0.0f;
 	}
 
 	void Application::Run()
@@ -25,10 +28,14 @@ namespace Morph {
 
 		while (m_Running)
 		{
+			float currTime = (float)glfwGetTime();
+			float timestep = currTime - m_Time;
+			m_Time = currTime;
+
 			glClearColor(0.8, 0.2, 0.2, 1.0);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			OnUpdate();
+			OnUpdate(timestep);
 
 			m_GUILayer->Begin();
 

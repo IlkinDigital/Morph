@@ -15,7 +15,7 @@ namespace Morph {
 		static Application& Get() { return *s_Instance; }
 		Window& GetWindow() { return *m_Window; }
 		
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(float timestep) {}
 		virtual void OnDrawGUI() {}
 		void OnEvent(Event& event);
 
@@ -25,6 +25,7 @@ namespace Morph {
 		bool OnWindowResize(WindowResizeEvent& event);
 	private:
 		bool m_Running = true;
+		float m_Time;
 		Scope<Window> m_Window;
 
 		Ref<ImGuiLayer> m_GUILayer;

@@ -2,12 +2,14 @@
 
 #include "GUI/Panel.h"
 
+#include "SerialPort.h"
+
 using namespace Morph;
 
-class LogPanel : public GUI::Panel
+class ArduinoPanel : public GUI::Panel
 {
 public:
-	LogPanel()
+	ArduinoPanel()
 		: Panel("Log Panel") {}
 private:
 	virtual void OnDraw() override

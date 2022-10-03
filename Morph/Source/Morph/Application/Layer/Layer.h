@@ -14,7 +14,7 @@ namespace Morph {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(float timestep) {}
 		virtual void OnRenderGUI() {}
 		virtual void OnEvent(Event& event) {}
 	protected:
