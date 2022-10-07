@@ -1,8 +1,8 @@
 Include = {}
-Include["Morph"] = "%{wks.location}/Morph/Source"
-Include["GLFW"] = "%{wks.location}/ThirdParty/GLFW/include"
-Include["glad"] = "%{wks.location}/ThirdParty/glad/include"
-Include["ImGui"] = "%{wks.location}/ThirdParty/ImGui"
+Include["Morph"] = "%{MorphDir}/Morph/Source"
+Include["GLFW"] = "%{MorphDir}/ThirdParty/GLFW/include"
+Include["glad"] = "%{MorphDir}/ThirdParty/glad/include"
+Include["ImGui"] = "%{MorphDir}/ThirdParty/ImGui"
 
 Library = {}
 Library["GLFW"] = "GLFW"
