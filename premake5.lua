@@ -12,3 +12,4 @@ workspace "Morph"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include "Vendor.lua"
+include "MorphApp"

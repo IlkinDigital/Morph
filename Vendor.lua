@@ -14,4 +14,3 @@ include "ThirdParty/glad"
 include "ThirdParty/ImGui"
 
 include "Morph"
-include "MorphApp"
