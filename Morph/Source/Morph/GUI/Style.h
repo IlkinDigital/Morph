@@ -2,7 +2,7 @@
 
 #include "FontLibrary.h"
 
-namespace Morph::GUI {
+namespace Morph {
 
 	class Style
 	{

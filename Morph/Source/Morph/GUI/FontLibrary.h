@@ -3,7 +3,7 @@
 #include "Core/CoreMinimal.h"
 #include <imgui.h>
 
-namespace Morph::GUI {
+namespace Morph {
 
 	static const uint16 s_FontWeightCount = 3;
 
@@ -20,11 +20,12 @@ namespace Morph::GUI {
 
 		void Set(FontWeight weight, const Filepath& path);
 		void SwitchWeight(FontWeight weight);
+
+		ImFont* GetNative() const; 
 	private:
-		ImFont* Get() const;
 	private:
 		std::string m_Name;
-		FontWeight m_CurrentWeight;
+		FontWeight m_CurrentWeight = FontWeight::Normal;
 		ImFont* m_Fonts[s_FontWeightCount]{};
 
 		friend class Style;

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Morph::GUI {
+namespace Morph {
 
 	class Layout
 	{

@@ -2,13 +2,11 @@
 
 #include <imgui.h>
 
-namespace Morph::GUI {
-
-	static ImGuiIO& s_IO = ImGui::GetIO();
+namespace Morph {
 
 	void Style::PushFont(const Font& font)
 	{
-		ImGui::PushFont(font.Get());
+		ImGui::PushFont(font.GetNative());
 	}
 
 	void Style::PopFont()
@@ -18,7 +16,8 @@ namespace Morph::GUI {
 
 	void Style::SetDefaultFont(const Font& font)
 	{
-		s_IO.FontDefault = font.Get();
+		ImGuiIO& io = ImGui::GetIO();
+		io.FontDefault = font.GetNative();
 	}
 
 }

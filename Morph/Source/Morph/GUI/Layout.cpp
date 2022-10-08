@@ -2,7 +2,7 @@
 
 #include <imgui.h>
 
-namespace Morph::GUI {
+namespace Morph {
 
 	void Layout::BeginDockspace()
 	{
